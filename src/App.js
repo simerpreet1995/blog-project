@@ -1,24 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import BlogCard from './BlogCard/BlogCard';
+import BlogContainer from './BlogCard/BlogContainer';
+import { Route, Routes } from 'react-router-dom';
+import BlogPost from './BlogPost/BlogPost';
+import BlogComments from './BlogComments/BlogComments';
+import MostLiked from './navbar/MostLiked';
+import MostCommented from './navbar/MostCommented';
+import Header from './navbar/Header';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+   <Header/>
+   <Routes>
+    <Route path="/" element={<BlogContainer/>}></Route>
+    <Route path='/post' element={<BlogPost/>}></Route>
+    <Route path="/comments" element={<BlogComments/>} />
+    <Route path="/most-liked" element={<MostLiked/>}></Route>
+    <Route path='/most-commented' element={<MostCommented/>}></Route>
+   </Routes>
+   </>
   );
 }
 
